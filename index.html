@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Green-Earth</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <!-- Tailwind and DaisyUI Cdn -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <header>
+      <div class="navbar bg-[#15803D] shadow-sm">
+        <div class="navbar-start">
+          <div class="dropdown">
+            <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 text-white"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h8m-8 6h16"
+                />
+              </svg>
+            </div>
+            <ul
+              tabindex="0"
+              class="group menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            >
+              <li><a>About</a></li>
+              <li><a>Gallery</a></li>
+              <li><a>Plant a Tree</a></li>
+            </ul>
+          </div>
+          <a
+            class="btn btn-ghost btn-warning text-white text-sm gap-0 p-0 md:text-xl"
+            ><img src="/assets/tree.png" alt="" class="w-10" />Green Earth</a
+          >
+        </div>
+        <div class="navbar-center hidden text-white lg:flex">
+          <ul class="menu menu-horizontal px-1">
+            <li><a>About</a></li>
+            <li><a>Gallery</a></li>
+            <li><a>Plant a Tree</a></li>
+          </ul>
+        </div>
+        <div class="navbar-end">
+          <a class="btn btn-warning bg-[#FACC15] rounded-full border-none"
+            >Plant a Tree</a
+          >
+        </div>
+      </div>
+    </header>
+  </body>
+</html>
