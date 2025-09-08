@@ -108,27 +108,48 @@ const closeModal = () => {
 const cartList = document.getElementById("cart-list");
 const cartTotal = document.getElementById("cart-total");
 let cart = [];
+
+// Add to Cart
 const addToCart = (name, price) => {
-  cart.push({ name, price });
+  // Check if item already exists
+  const existingItem = cart.find((item) => item.name === name);
+
+  if (existingItem) {
+    existingItem.quantity += 1; // increase quantity
+  } else {
+    cart.push({ name, price, quantity: 1 });
+  }
+
   renderCart();
 };
 
+// Remove from Cart (decrease quantity or remove)
 const removeFromCart = (index) => {
-  cart.splice(index, 1);
+  if (cart[index].quantity > 1) {
+    cart[index].quantity -= 1;
+  } else {
+    cart.splice(index, 1);
+  }
   renderCart();
 };
 
+// Render Cart
 const renderCart = () => {
   cartList.innerHTML = "";
   let total = 0;
 
   cart.forEach((item, index) => {
-    total += item.price;
+    const itemTotal = item.price * item.quantity;
+    total += itemTotal;
+
     const div = document.createElement("div");
-    div.className = "flex justify-between items-center bg-gray-100 p-2 rounded";
+    div.className =
+      "flex justify-between items-center bg-[#DCFCE7] p-2 rounded";
     div.innerHTML = `
-      <span>${item.name} - ৳ ${item.price}</span>
-      <button onclick="removeFromCart(${index})" class="text-red-500 font-bold"><i class="fa-solid fa-xmark"></i></button>
+      <div><span class="text-sm font-semibold">${item.name} </span> <br> <span class="text-[#8C8C8C]"> ৳${item.price} × ${item.quantity}</span></div>
+      <button onclick="removeFromCart(${index})" class="text-[#8C8C8C] font-bold">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
     `;
     cartList.appendChild(div);
   });
