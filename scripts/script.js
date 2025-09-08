@@ -47,5 +47,59 @@ const loadPlantsByCategory = async (id) => {
   displayPlants(data.plants);
 };
 
+// Display Plants (cards)
+const displayPlants = (plants) => {
+  plantContainer.innerHTML = ``;
+
+  plants.forEach((plant) => {
+    const card = document.createElement("div");
+    card.className = "bg-white p-4 rounded-lg shadow hover:shadow-lg";
+    card.innerHTML = `
+      <img src="${plant.image}" alt="${plant.name}" class="w-full h-40 object-cover rounded cursor-pointer" onclick="loadPlantDetail(${plant.id})" />
+      <h4 class="font-bold mt-2 cursor-pointer" onclick="loadPlantDetail(${plant.id})">${plant.name}</h4>
+      <p class="text-sm text-gray-600 line-clamp-2 my-3">${plant.description}</p>
+      <div class="flex justify-between items-center mt-2">
+        <span class="text-green-600 font-medium rounded-full px-2 bg-[#DCFCE7]">${plant.category}</span>
+        <span class="font-bold">৳ ${plant.price}</span>
+      </div>
+      <button onclick="addToCart('${plant.name}', ${plant.price})" class="w-full mt-5 bg-[#15803D] text-white py-2 rounded-full hover:bg-[#033816]">Add to Cart</button>
+    `;
+    plantContainer.appendChild(card);
+  });
+};
+
+// Cart Functions
+const cartList = document.getElementById("cart-list");
+const cartTotal = document.getElementById("cart-total");
+let cart = [];
+const addToCart = (name, price) => {
+  cart.push({ name, price });
+  renderCart();
+};
+
+const removeFromCart = (index) => {
+  cart.splice(index, 1);
+  renderCart();
+};
+
+const renderCart = () => {
+  cartList.innerHTML = "";
+  let total = 0;
+
+  cart.forEach((item, index) => {
+    total += item.price;
+    const div = document.createElement("div");
+    div.className = "flex justify-between items-center bg-gray-100 p-2 rounded";
+    div.innerHTML = `
+      <span>${item.name} - ৳ ${item.price}</span>
+      <button onclick="removeFromCart(${index})" class="text-red-500 font-bold"><i class="fa-solid fa-xmark"></i></button>
+    `;
+    cartList.appendChild(div);
+  });
+
+  cartTotal.innerText = total;
+};
+
 // Initial Load
 loadCategories();
+loadPlants();
