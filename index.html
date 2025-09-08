@@ -119,23 +119,28 @@
 
     <!-- Trees Section  -->
     <section class="bg-[#F0FDF4] pt-10">
-      <main class="container mx-auto p-6 grid grid-cols-12 gap-6">
+      <main
+        class="container mx-auto p-6 grid grid-cols-1 md:grid-cols-12 gap-6"
+      >
         <!-- Categories -->
-        <aside class="col-span-2 mt-22">
-          <h3 class="font-bold mb-6 pl-3">Categories</h3>
-          <div id="category-container" class="flex flex-col gap-2"></div>
+        <aside class="md:col-span-2 md:mt-22">
+          <h3 class="font-bold mb-2 sm:mb-6 pl-3">Categories</h3>
+          <div id="category-container" class="flex flex-col sm:gap-2"></div>
         </aside>
 
         <!-- Plants -->
-        <section class="col-span-7 p-4">
-          <h2 class="text-2xl font-bold text-center mb-10">
+        <section class="md:col-span-7 md:p-4">
+          <h2 class="text-2xl font-bold text-center mb-5 md:mb-10">
             Choose Your Trees
           </h2>
-          <div id="plant-container" class="grid grid-cols-3 gap-4"></div>
+          <div
+            id="plant-container"
+            class="grid grid-cols-1 sm:grid-cols-3 gap-4"
+          ></div>
         </section>
 
         <!-- Cart -->
-        <aside class="col-span-3 bg-white p-4 rounded-lg shadow mt-22">
+        <aside class="md:col-span-3 bg-white p-4 rounded-lg shadow md:mt-22">
           <h3 class="font-bold mb-4">Your Cart</h3>
           <div id="cart-list" class="flex flex-col gap-2"></div>
           <p class="font-bold mt-4">Total: ৳ <span id="cart-total">0</span></p>
@@ -147,10 +152,10 @@
         id="modal"
         class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center"
       >
-        <div class="bg-white p-8 rounded-lg w-1/3 relative">
+        <div class="bg-white p-8 rounded-lg w-11/12 md:w-1/3 relative">
           <button
             onclick="closeModal()"
-            class="btn btn-ghost rounded-full p-0 absolute top-0 right-0 text-red-500 text-2xl"
+            class="btn btn-ghost rounded-full p-0 absolute top-3 right-3 text-red-500 text-2xl"
           >
             <i class="fa-regular fa-circle-xmark"></i>
           </button>
