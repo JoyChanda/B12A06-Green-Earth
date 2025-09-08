@@ -11,21 +11,37 @@ const loadCategories = async () => {
 const displayCategories = (categories) => {
   categoryContainer.innerHTML = "";
 
-  // Add "All Trees" button
+  //active button
+  const setActiveCategory = (button) => {
+    const buttons = categoryContainer.querySelectorAll("button");
+    buttons.forEach((b) => b.classList.remove("bg-green-800", "text-white"));
+    button.classList.add("bg-green-800", "text-white");
+  };
+
+  // "All Trees" button
   const allBtn = document.createElement("button");
   allBtn.innerText = "All Trees";
   allBtn.className =
     "px-3 py-1 rounded-full text-left hover:bg-green-200 active:bg-green-800";
-  allBtn.onclick = () => loadPlants();
+  allBtn.onclick = () => {
+    setActiveCategory(allBtn);
+    loadPlants();
+  };
   categoryContainer.appendChild(allBtn);
 
-  // Add categories dynamically
+  // Make "All Trees" active by default
+  setActiveCategory(allBtn);
+
+  // Dynamic categories
   categories.forEach((cat) => {
     const btn = document.createElement("button");
     btn.innerText = cat.category_name;
     btn.className =
       "px-3 py-1 rounded-full text-left hover:bg-green-200 active:bg-green-800";
-    btn.onclick = () => loadPlantsByCategory(cat.id);
+    btn.onclick = () => {
+      setActiveCategory(btn);
+      loadPlantsByCategory(cat.id);
+    };
     categoryContainer.appendChild(btn);
   });
 };
