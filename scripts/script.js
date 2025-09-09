@@ -49,18 +49,22 @@ const displayCategories = (categories) => {
 // Load All Plants
 const plantContainer = document.getElementById("plant-container");
 const loadPlants = async () => {
+  showLoading();
   const res = await fetch("https://openapi.programming-hero.com/api/plants");
   const data = await res.json();
   displayPlants(data.plants);
+  hideLoading();
 };
 
 // Load Plants by Category
 const loadPlantsByCategory = async (id) => {
+  showLoading();
   const res = await fetch(
     `https://openapi.programming-hero.com/api/category/${id}`
   );
   const data = await res.json();
   displayPlants(data.plants);
+  hideLoading();
 };
 
 // Display Plants (cards)
@@ -171,6 +175,16 @@ const renderCart = () => {
   });
 
   cartTotal.innerText = total;
+};
+
+const loading = document.getElementById("loading");
+
+const showLoading = () => {
+  loading.classList.remove("hidden");
+};
+
+const hideLoading = () => {
+  loading.classList.add("hidden");
 };
 
 // Initial Load

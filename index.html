@@ -34,8 +34,9 @@
     <link rel="stylesheet" href="styles/style.css" />
   </head>
   <body>
-    <header>
-      <div class="navbar bg-[#15803D] shadow-sm">
+    <!-- Navbar Section -->
+    <header id="home1">
+      <div class="navbar bg-[#15803D] shadow-sm fixed top-0 left-0 w-full z-50">
         <div class="navbar-start">
           <div class="dropdown">
             <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
@@ -58,31 +59,41 @@
               tabindex="0"
               class="group menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
-              <li><a>About</a></li>
-              <li><a>Gallery</a></li>
-              <li><a>Plant a Tree</a></li>
+              <li><a href="#about1">About</a></li>
+              <li><a href="#gallery1">Gallery</a></li>
+              <li><a href="#tree1">Plant a Tree</a></li>
             </ul>
           </div>
           <a
-            class="btn btn-ghost btn-warning text-white text-sm gap-0 p-0 md:text-xl md:ml-10"
+            href="#home1"
+            class="btn btn-ghost hover:bg-[#1d7741] border-none text-white text-sm gap-0 p-0 md:text-xl md:ml-10"
             >🌱 Green Earth</a
           >
         </div>
         <div class="navbar-center hidden text-white lg:flex">
           <ul class="menu menu-horizontal px-1">
-            <li><a>About</a></li>
-            <li><a>Gallery</a></li>
-            <li><a>Plant a Tree</a></li>
+            <li><a href="#about1">About</a></li>
+            <li><a href="#gallery1">Gallery</a></li>
+            <li><a href="#tree1">Plant a Tree</a></li>
           </ul>
         </div>
         <div class="navbar-end">
           <a
+            href="#tree1"
             class="btn mt-4 bg-[#FACC15] rounded-full text-[#15803D] font-medium border-none"
             >Plant a Tree</a
           >
         </div>
       </div>
     </header>
+
+    <!-- Loading Spinner -->
+    <div
+      id="loading"
+      class="hidden flex justify-center py-4 fixed top-[64px] left-0 w-full z-50"
+    >
+      <span class="loading loading-dots loading-lg text-black"></span>
+    </div>
 
     <!-- Banner Section -->
     <section
@@ -100,7 +111,7 @@
         <button
           class="btn mt-4 bg-[#FACC15] px-4 py-2 rounded-full text-[#15803D] font-medium"
         >
-          Get Involved
+          <a href="#gallery1">Get Involved</a>
         </button>
       </div>
 
@@ -166,10 +177,12 @@
       </div>
     </section>
 
-    <!-- About section -->
-    <section class="bg-[#F0FDF4] px-5 md:py-12">
+    <!-- About Section -->
+    <section id="about1" class="bg-[#F0FDF4] min-h-[750px] px-5 py-6 md:py-12">
       <div class="max-w-6xl mx-auto">
-        <h1 class="text-center text-2xl font-bold mb-10">About the Campaign</h1>
+        <h1 class="text-center text-2xl font-bold my-8 md:my-14">
+          About the Campaign
+        </h1>
 
         <div
           class="flex flex-col md:flex-row items-center justify-center gap-10"
@@ -195,11 +208,14 @@
       </div>
     </section>
 
-    <!-- Impect section -->
-    <section class="bg-[#CFF0DC] h-full flex items-center mt-0 py-16">
+    <!-- Impect Section -->
+    <section
+      id="gallery1"
+      class="bg-[#CFF0DC] min-h-[400px] flex items-center mt-0 py-16"
+    >
       <div class="max-w-6xl mx-auto px-5 w-full">
         <!-- Section Title -->
-        <h1 class="text-center text-2xl font-bold mb-6">Our Impact</h1>
+        <h1 class="text-center text-2xl font-bold mb-12">Our Impact</h1>
 
         <!-- Cards -->
         <div
@@ -207,7 +223,7 @@
         >
           <!-- Card 1 -->
           <div
-            class="bg-white w-72 h-28 flex flex-col justify-center rounded-lg shadow-md"
+            class="bg-white w-72 md:w-2/6 h-28 flex flex-col justify-center rounded-lg shadow-md hover:bg-green-200 transform hover:scale-105 transition duration-300 ease-in-out"
           >
             <h2 class="text-center text-2xl text-[#15803D] font-semibold">
               500K+
@@ -217,7 +233,7 @@
 
           <!-- Card 2 -->
           <div
-            class="bg-white w-72 h-28 flex flex-col justify-center rounded-lg shadow-md"
+            class="bg-white w-72 md:w-2/6 h-28 flex flex-col justify-center rounded-lg shadow-md hover:bg-green-200 transform hover:scale-105 transition duration-300 ease-in-out"
           >
             <h2 class="text-center text-2xl text-[#15803D] font-semibold">
               120+
@@ -227,7 +243,7 @@
 
           <!-- Card 3 -->
           <div
-            class="bg-white w-72 h-28 flex flex-col justify-center rounded-lg shadow-md"
+            class="bg-white w-72 md:w-2/6 h-28 flex flex-col justify-center rounded-lg shadow-md hover:bg-green-200 transform hover:scale-105 transition duration-300 ease-in-out"
           >
             <h2 class="text-center text-2xl text-[#15803D] font-semibold">
               30+
@@ -240,7 +256,10 @@
 
     <!-- form section -->
 
-    <section class="bg-[#166534] flex justify-center py-16 px-5">
+    <section
+      id="tree1"
+      class="bg-[#166534] flex justify-center items-center min-h-[550px] py-16 -w-2/6"
+    >
       <div class="w-full max-w-md">
         <h1 class="text-2xl text-center text-white font-semibold mb-5">
           Plant a Tree Today
